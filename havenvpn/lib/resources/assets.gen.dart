@@ -71,12 +71,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/Group17.png
 
 AssetGenImage get logo => const AssetGenImage('assets/images/5.png');
-AssetGenImage get crown => const AssetGenImage('assets/images/Group 905.png');
+AssetGenImage get crown => const AssetGenImage('assets/images/crown.png');
 AssetGenImage get removeads =>  const AssetGenImage('assets/images/remove.png');
 AssetGenImage get support =>  const AssetGenImage('assets/images/images.jpg');
 AssetGenImage get unlock =>  const AssetGenImage('assets/images/images.png');
 AssetGenImage get smile =>  const AssetGenImage('assets/images/smile.png');
 AssetGenImage get sad =>  const AssetGenImage('assets/images/sad.jpg');
+AssetGenImage get connecting =>  const AssetGenImage('assets/images/giphy.gif');
+AssetGenImage get background =>  const AssetGenImage('assets/images/background.jpg');
+AssetGenImage get rocket =>  const AssetGenImage('assets/images/rocket.png');
+
   /// File path: assets/images/Layer 1.png
 
 

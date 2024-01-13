@@ -18,10 +18,13 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: GestureDetector(onTap: (){
+          Navigator.pop(context);
+        } ,child: Icon(Icons.arrow_back_ios_new_outlined, color: Color(0xff6928d2),)),
         automaticallyImplyLeading : false,
-        title: const Text('Setting' , style: TextStyle(color: Colors.black, fontSize: 20,fontWeight: FontWeight.w600 ),),
+        title: const Text('Setting' , style: TextStyle( color: Color(0xff6928d2), fontSize: 20,fontWeight: FontWeight.w600 ),),
         centerTitle: true,
 
       ),
@@ -35,15 +38,15 @@ class _SettingPageState extends State<SettingPage> {
           //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const HistoryPage()));
           // },),
           // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Share with friends' ,svgWidget: const Icon(Icons.ios_share_outlined), onPressed: (){
+          SettingListTile(title: 'Share with friends' ,svgWidget: const Icon(Icons.share, color: Colors.white,), onPressed: (){
             // ignore: lines_longer_than_80_chars
             Share.share('${Config.storeAppUrl}');
           },),
           // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Feedback' ,svgWidget: const Icon(Icons.chat), onPressed: () {
-             showBottomSheet(
+          SettingListTile(title: 'Feedback' ,svgWidget: const Icon(Icons.feedback, color: Colors.white), onPressed: () {
+             showDialog(
                       context: context,
-                      builder: (BuildContext context) {
+                      builder: (context) {
                         
                         return const RatingDialog();
                       },
@@ -57,12 +60,12 @@ class _SettingPageState extends State<SettingPage> {
                     // );
                   },),
           //ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Terms of Use' ,svgWidget: const Icon(Icons.text_snippet_outlined), onPressed: (){
+          SettingListTile(title: 'Terms of Use' ,svgWidget: const Icon(Icons.text_snippet, color: Colors.white), onPressed: (){
             // ignore: lines_longer_than_80_chars
             Navigator.push(context, MaterialPageRoute(builder: (_)=>  const TermsPage()));
           },),
           // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Privacy Policy' ,svgWidget:const Icon(Icons.privacy_tip_outlined), onPressed: (){
+          SettingListTile(title: 'Privacy Policy' ,svgWidget:const Icon(Icons.security, color: Colors.white), onPressed: (){
             // ignore: lines_longer_than_80_chars
             Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PrivacyPage ()));
           },),
@@ -104,45 +107,60 @@ class SettingListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-    
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1, // Độ rộng mà drop shadow lan ra
-            blurRadius: 3, // Độ mờ của drop shadow
-            offset: const Offset(0, 3), // Vị trí của drop shadow
-          )
-        ],
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
+    return  Column(
+      children: [
+        Container(
+        
+          margin: const EdgeInsets.symmetric(horizontal: 15, ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.black.withOpacity(0.1),
+            //     spreadRadius: 1, // Độ rộng mà drop shadow lan ra
+            //     blurRadius: 3, // Độ mờ của drop shadow
+            //     offset: const Offset(0, 3), // Vị trí của drop shadow
+            //   )
+            // ],
+            borderRadius: const BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          child: ListTile(
+            onTap: onPressed,
+            leading: Container(padding:EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Color(0xff6928d2),
+              borderRadius: BorderRadius.all(Radius.circular(15))
+            )  ,child: svgWidget),
+            title: Text(
+              title,
+              style: const TextStyle(fontSize: 14, color: Colors.black),
+            ),
+            trailing:  InkWell(
+                // ignore: lines_longer_than_80_chars
+                child: islast ?? false  ? const Text(Config.version) : ispre?? false ?  Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  // ignore: lines_longer_than_80_chars
+                  decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: Color(0xffFB5607) ,
+                  
+                  ),
+                  child: const Text('Try now', style: TextStyle(color: Colors.black),),
+                ) : const Icon(
+              Icons.arrow_forward_ios_rounded,
+              color: Color(0xff6928d2),
+            )),
+          ),
         ),
-      ),
-      child: ListTile(
-        onTap: onPressed,
-        leading: svgWidget,
-        title: Text(
-          title,
-          style: const TextStyle(fontSize: 14, color: Colors.black),
-        ),
-        trailing:  InkWell(
-            // ignore: lines_longer_than_80_chars
-            child: islast ?? false  ? const Text(Config.version) : ispre?? false ?  Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              // ignore: lines_longer_than_80_chars
-              decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),
-              color: Color(0xffFB5607) ,
-              
-              ),
-              child: const Text('Try now', style: TextStyle(color: Colors.black),),
-            ) : const Icon(
-          Icons.arrow_forward_ios_rounded,
-          color: Colors.black,
-        )),
-      ),
+         Container(
+          margin: const EdgeInsets.symmetric(horizontal: 15),
+          child: Divider(
+            thickness: 2,
+            color: const Color(0xff6928d2).withOpacity(0.2)
+          ),
+        )
+      ],
     );
   }
   

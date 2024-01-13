@@ -38,18 +38,21 @@ class _HistoryPageState extends State<HistoryPage> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
+        leading: TextButton(onPressed: () {
+          Navigator.pop(context);
+        }, child: Icon(Icons.arrow_back_ios_new_outlined, color: Color(0xff6928d2),),),
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: const AppTitleText(
           text: 'History',
-          color: Colors.black,
+          color: Color(0xff6928d2),
         ),
         actions: [
           TextButton(
             child: isHistoryNotEmpty == true
                 ? Assets.icons.icCrown.svg()
-                : const Icon(Icons.delete, color: Colors.black),
+                : const Icon(Icons.delete, color: Color(0xff6928d2)),
             onPressed: () {
               if (isHistoryNotEmpty == true) {
                 _deleteAllConfirmationDialog();
@@ -101,13 +104,8 @@ class _HistoryPageState extends State<HistoryPage> {
                 ),
                 Visibility(
                   visible: state.histories.isNotEmpty,
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 1,
-                            childAspectRatio: 1,
-                            mainAxisExtent: 120),
+                  child: ListView.builder(
+                    
                     padding: const EdgeInsets.only(bottom: 16),
                     itemBuilder: (context, index) {
                       final history = state.histories[index];
@@ -130,35 +128,39 @@ class _HistoryPageState extends State<HistoryPage> {
       builder: (context) {
         return Container(
           decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
             color: Colors.white,
           ),
           margin: const EdgeInsets.symmetric(vertical: 320, horizontal: 40),
-          height: 100,
+          height: 150,
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+             
+              
               children: [
+                SizedBox(height: 10,),
                 const Text(
                   'Clean History',
                 ),
+                
                 const Text(
                   'Would you like to remove everything ?',
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
+                Spacer(),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(1),
-                      decoration: const BoxDecoration(
+                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                      decoration:  BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
-                          color: Colors.grey),
+                          border: Border.all(width: 1, color: Colors.red),
+                          color: Colors.red.withOpacity(0.3)),
                       child: Container(
-                        child: TextButton(
-                            onPressed: () {
+                        child: GestureDetector(
+                            onTap: () {
                               Navigator.of(context).pop();
                             },
                             child: const Text(
@@ -168,13 +170,14 @@ class _HistoryPageState extends State<HistoryPage> {
                             )),
                       ),
                     ),
+                    SizedBox(width: 20,),
                     Container(
-                      padding: const EdgeInsets.all(1),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           color: Color(0xff5cffd1)),
-                      child: TextButton(
-                          onPressed: () {
+                      child: GestureDetector(
+                          onTap: () {
                             getIt<AppDatabase>().deleteAllHistories(() {
                               _refreshListView();
                               if (!context.mounted) return;
@@ -195,8 +198,10 @@ class _HistoryPageState extends State<HistoryPage> {
                             style: TextStyle(fontSize: 14, color: Colors.black),
                           )),
                     ),
+                    SizedBox(width: 20,),
                   ],
-                )
+                ),
+                SizedBox(height: 20,)
               ]),
         );
       },
@@ -205,50 +210,83 @@ class _HistoryPageState extends State<HistoryPage> {
 
   Widget _buildHistoryItem(HistoryModel history) {
     final server = history.vpnServerModel;
-    return Container(
-      height: 120,
-      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 32,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(1000),
-              child: Container(
-                decoration: const BoxDecoration(boxShadow: [
-                  BoxShadow(
-                      blurRadius: 4, spreadRadius: 40, color: Colors.black)
-                ]),
-                child: Image.asset(
-                  fit: BoxFit.cover,
-                  server.flag,
-                  width: 35,
+    return Column(
+      children: [
+        Container(
+     
+          margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            
+          ),
+          child: Row(
+            
+            children: [
+              SizedBox(
+                width: 32,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                    BoxShadow(
+                        blurRadius: 4, spreadRadius: 1, color: Colors.black)
+                  ]),
+                  child: Image.asset(
+                    fit: BoxFit.cover,
+                    server.flag,
+                    width: 35,
+                  ),
                 ),
               ),
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+              SizedBox(width: 5,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppBodyText(
+                    color: Colors.black,
+                    text: '${server.country}' ,
+                  ),
+                ],
+              ),
+              Spacer(),
               AppBodyText(
+                text: history.createAt.toStringFormatted(),
+                size: 12,
                 color: Colors.black,
-                text: server.country ?? '',
+              ),
+              SizedBox(width: 10,),
+              GestureDetector(
+                onTap: () {
+                   getIt<AppDatabase>().deleteitems(() {
+                     _refreshListView();
+                                  if (!context.mounted) return;
+                                  // Navigator.of(context).popUntil((route) => route.isFirst);
+                                  EasyLoading.showToast(
+                                      'Deleted');
+                                  // Future.delayed(Duration(seconds: 2), () {
+                                  //   setState(() {
+                                  //     //return _refreshListView();
+                                  //   });
+                                  // });
+                                  context.read<AppCubit>().fetchHistoryList();
+                   }, history.createAt.second.toString());
+                },
+                child: Icon(Icons.delete,color: Color(0xff6928d2)),
               ),
             ],
           ),
-          AppBodyText(
-            text: history.createAt.toStringFormatted(),
-            size: 12,
-            color: Colors.black,
-          )
-        ],
-      ),
+        ),
+        const SizedBox(height: 3,),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          child: Divider(
+            thickness: 2,
+            color: const Color(0xff6928d2).withOpacity(0.2)
+          ),
+        )
+      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:openvpn/resources/assets.gen.dart';
 
 class Custombackground extends StatefulWidget {
   const Custombackground({super.key, required this.widget});
@@ -15,7 +16,8 @@ class _CustombackgroundState extends State<Custombackground> {
             width: double.infinity,
             height: double.infinity,
             decoration:  BoxDecoration(
-                color: Colors.black.withOpacity(0.85),
+                color: Colors.white,
+               
             ),
             child: widget.widget);
   }

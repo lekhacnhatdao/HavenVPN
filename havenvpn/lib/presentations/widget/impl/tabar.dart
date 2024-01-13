@@ -22,7 +22,7 @@ class _TabbarpageState extends State<Tabbarpage> with TickerProviderStateMixin {
     return AppBar(
       title: TabBarView(children: [
         Assets.images.security.image(),
-        Assets.images.logo.image()
+        Assets.images.connecting.image()
       ]),
       bottom: TabBar(controller : controller ,tabs: [
         TextButton( onPressed: () { }, child: Icon(Icons.arrow_back)),

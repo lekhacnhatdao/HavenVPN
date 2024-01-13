@@ -10,6 +10,28 @@
     "lockChat": false
   },
   "servers": [
+   
+    {
+      "ip": "103.195.238.219",
+      "country": "Vietnam",
+      "countryCode": "VN",
+      "region": "Ho Chi Minh",
+      "city": "Quan Binh Thanh",
+      "timezone": "Asia\/Ho_Chi_Minh",
+      "lat": "10.8105",
+      "lon": "106.707",
+      "zip": "",
+      "ovpn": "assets/opvn/vn_client_103.195.238.6.ovpn",
+      "flag": "assets/flags/VN.png",
+      "vpn": {
+        "table": [
+          "1",
+          "2",
+          "3"
+        ],
+        "free": true
+      }
+    },
     {
       "ip": "51.75.187.111",
       "country": "Italy",
@@ -29,27 +51,6 @@
           "3"
         ],
         "free": false
-      }
-    },
-    {
-      "ip": "165.154.225.33",
-      "country": "Hong Kong",
-      "countryCode": "HK",
-      "region": "Central and Western District",
-      "city": "Hong Kong",
-      "timezone": "Asia\/Hong_Kong",
-      "lat": "22.2842",
-      "lon": "114.1759",
-      "zip": "96521",
-      "ovpn": "assets/opvn/hk_client_165.154.225.37.ovpn",
-      "flag": "assets/flags/HK.png",
-      "vpn": {
-        "table": [
-          "1",
-          "2",
-          "3"
-        ],
-        "free": true
       }
     },
     {
@@ -91,7 +92,28 @@
           "2",
           "3"
         ],
-        "free": true
+        "free": false
+      }
+    },
+    {
+      "ip": "188.40.199.170",
+      "country": "Germany",
+      "countryCode": "DE",
+      "region": "Saxony",
+      "city": "Falkenstein",
+      "timezone": "Europe\/Berlin",
+      "lat": "50.475",
+      "lon": "12.365",
+      "zip": "08223",
+      "ovpn": "assets/opvn/us_client_50.114.12.12",
+      "flag": "assets/flags/DE.png",
+      "vpn": {
+        "table": [
+          "1",
+          "2",
+          "3"
+        ],
+        "free": false
       }
     },
     {
@@ -116,17 +138,17 @@
       }
     },
     {
-      "ip": "103.195.238.219",
-      "country": "Vietnam",
-      "countryCode": "VN",
-      "region": "Ho Chi Minh",
-      "city": "Quan Binh Thanh",
-      "timezone": "Asia\/Ho_Chi_Minh",
-      "lat": "10.8105",
-      "lon": "106.707",
+      "ip": "165.154.240.192",
+      "country": "South Korea",
+      "countryCode": "KR",
+      "region": "Seoul",
+      "city": "Seoul",
+      "timezone": "Asia\/Seoul",
+      "lat": "0",
+      "lon": "0",
       "zip": "",
-      "ovpn": "assets/opvn/vn_client_103.195.238.6.ovpn",
-      "flag": "assets/flags/VN.png",
+      "ovpn": "assets/opvn/kr_client_165.154.240.116.ovpn",
+      "flag": "assets/flags/KR.png",
       "vpn": {
         "table": [
           "1",
@@ -136,6 +158,7 @@
         "free": true
       }
     },
+    
     {
       "ip": "165.154.227.209",
       "country": "Taiwan",
@@ -199,18 +222,19 @@
         "free": false
       }
     },
+ 
     {
-      "ip": "165.154.240.192",
-      "country": "South Korea",
-      "countryCode": "KR",
-      "region": "Seoul",
-      "city": "Seoul",
-      "timezone": "Asia\/Seoul",
-      "lat": "0",
-      "lon": "0",
-      "zip": "",
-      "ovpn": "assets/opvn/kr_client_165.154.240.116.ovpn",
-      "flag": "assets/flags/KR.png",
+      "ip": "165.154.225.33",
+      "country": "Hong Kong",
+      "countryCode": "HK",
+      "region": "Central and Western District",
+      "city": "Hong Kong",
+      "timezone": "Asia\/Hong_Kong",
+      "lat": "22.2842",
+      "lon": "114.1759",
+      "zip": "96521",
+      "ovpn": "assets/opvn/hk_client_165.154.225.37.ovpn",
+      "flag": "assets/flags/HK.png",
       "vpn": {
         "table": [
           "1",
@@ -280,7 +304,7 @@
           "2",
           "3"
         ],
-        "free": false
+        "free": true
       }
     },
     {
@@ -364,7 +388,7 @@
           "2",
           "3"
         ],
-        "free": true
+        "free": false
       }
     },
     {
@@ -408,28 +432,8 @@
         ],
         "free": true
       }
-    },
-    {
-      "ip": "188.40.199.170",
-      "country": "Germany",
-      "countryCode": "DE",
-      "region": "Saxony",
-      "city": "Falkenstein",
-      "timezone": "Europe\/Berlin",
-      "lat": "50.475",
-      "lon": "12.365",
-      "zip": "08223",
-      "ovpn": "assets/opvn/us_client_50.114.12.12",
-      "flag": "assets/flags/DE.png",
-      "vpn": {
-        "table": [
-          "1",
-          "2",
-          "3"
-        ],
-        "free": false
-      }
     }
+ 
   ],
   "services": [
     {

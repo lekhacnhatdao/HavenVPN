@@ -8,6 +8,7 @@ import 'package:openvpn/presentations/page/main/inforserver.dart';
 import 'package:openvpn/presentations/page/main/settingpage.dart';
 import 'package:openvpn/presentations/page/main/speedtest.dart';
 import 'package:openvpn/presentations/page/main/vpn_page.dart';
+import 'package:openvpn/presentations/widget/impl/backround.dart';
 import 'package:openvpn/presentations/widget/impl/custombar.dart';
 import 'package:openvpn/utils/config.dart';
 
@@ -33,24 +34,25 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
-        return Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: state.isLoading
-                      ? [
-                          Colors.white,
-                          Colors.grey,
-                        ]
-                      : state.titleStatus == 'Connected'
-                          ? [Colors.white, const Color(0xff5cffd1)]
-                          : [Colors.white, Colors.grey],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter)),
-          child: SafeArea(
-              bottom: false,
-              child: Scaffold(
-                backgroundColor: Colors.transparent,
+        return  SafeArea(
+            bottom: false,
+            child: Custombackground(
+              widget: Scaffold(
+             
                 appBar: AppBar(
+                  actions: [
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_) =>const HistoryPage()));
+                      },
+                      child: const Icon(Icons.history_toggle_off_rounded, color: Color(0xff6928d2)),
+                    ),
+                    const SizedBox(width: 10,),
+                    GestureDetector(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => SettingPage()));
+                    } ,child: const Icon(Icons.settings_outlined, color: Color(0xff6928d2),),),
+                    const SizedBox(width: 10,),
+                  ],
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
                   centerTitle: true,
@@ -62,11 +64,11 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         fit: BoxFit.contain,
                       ),
                       Text('${ Config.appName.split('T').last}'  ,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       ),
                     ],
                   ),
-
+                    
                   // BlocBuilder<AppCubit, AppState>(
                   //   builder: (context, state) {
                   //     return Container(
@@ -88,35 +90,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                   //   },
                   // )
                 ),
-                body: Column(
-                  children: [
-                    Expanded(
-                      child:
-                          TabBarView(controller: controller, children: const [
-                        VpnPage(),
-                        InforServer(),
-                        HistoryPage(),
-                        Speedtestpage(),
-                        SettingPage(),
-                      ]),
-                    ),
-                    CustomBottomBar(
-                      controller: controller,
-                      listIcon: const [
-                        Icons.bolt_rounded,
-                        Icons.info,
-                        Icons.history_outlined,
-                        Icons.radar,
-                        Icons.settings,
-                      ],
-                      onSelect: (index) {
-                        return controller.animateTo(index);
-                      },
-                    )
-                  ],
-                ),
-              )),
-        );
+                body: 
+                          const VpnPage(),
+
+                      
+                    
+              ),
+            ));
       },
     );
   }

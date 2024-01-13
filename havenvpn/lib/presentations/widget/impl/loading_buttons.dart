@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:openvpn/presentations/widget/impl/CstomanimationButton.dart';
+import 'package:openvpn/resources/assets.gen.dart';
 import 'package:openvpn/resources/colors.dart';
 
 class LoadingButtons extends StatelessWidget {
@@ -37,31 +39,24 @@ class LoadingButtons extends StatelessWidget {
                 width: 140,
                 height: 140,
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color:isLoading?Colors.grey : isDisconnect?   Colors.grey: Color(0xff18daa3),
-                      blurRadius: 4,
-        spreadRadius: 5
-                    )
-                  ],
                     shape: BoxShape.circle,
                     // ignore: lines_longer_than_80_chars
                     gradient: LinearGradient(
                       colors: isLoading
                           ? [
-                            const Color.fromARGB(255, 207, 207, 207), 
-                            const Color.fromARGB(255, 175, 175, 175) 
+                             Colors.black, 
+                            Colors.black 
                             ]
                           : changeUI
                               ? [
-                                const Color.fromARGB(255, 207, 207, 207), 
-                            const Color.fromARGB(255, 175, 175, 175)
+                                Colors.black, 
+                            Colors.black
                                 ]
                               : [
-                                  Colors.white,Color(0xff5cffd1)
+                                Colors.pink,const Color(0xff6928d2),
                                 ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomCenter,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomRight,
                     )),
               ),
             ),
@@ -69,30 +64,31 @@ class LoadingButtons extends StatelessWidget {
              
               child: Align(
                 child: Container(
-                  decoration:  BoxDecoration(
+                  decoration:  const BoxDecoration(
                     shape: BoxShape.circle,
                     color:  Colors.transparent,
                   ),
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(23),
                   child: ShaderMask(
                     blendMode: BlendMode.srcIn,
-                    shaderCallback: (Rect bounds) => LinearGradient(
+                    shaderCallback: (Rect bounds) => const LinearGradient(
                       
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: isLoading
-                          ? [Colors.white,
-                                  Colors.white,]
-                          : changeUI
-                              ? [Colors.white,
-                                  Colors.white,
-                                  
-                                ]
-                              : [Color.fromARGB(255, 5, 236, 171), Color(0xff18daa3)],
+                      colors: 
+                         [Colors.white, Colors.white],
                     ).createShader(bounds),
-                    child: isLoading
-                        ? CustomAnimation()
-                        : isDisconnect?  icon :  CustomAnimation()
+                    child:
+                           Align(child: isLoading? Container(
+                  height: 100,
+                      decoration: const BoxDecoration(
+                    
+                        image: DecorationImage(image: AssetImage('assets/images/giphy.gif'),
+                        
+                        ),
+                        shape: BoxShape.circle
+                      ),
+                    ): icon) 
                   ),
                 ),
               ),

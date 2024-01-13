@@ -22,18 +22,20 @@ class _ServerPageState extends State<ServerPage> {
       length: 2,
       child: BlocBuilder<AppCubit, AppState>(builder: (context, state) {
         return Container(
-         decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: state.isLoading
-                      ? [
-                          Colors.white,
-                          Colors.grey,
-                        ]
-                      : state.titleStatus == 'Connected'
-                          ? [Colors.white, Color(0xff5cffd1)]
-                          : [Colors.white, Colors.grey],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter)),
+         decoration: const BoxDecoration(
+          color: Colors.white
+              // gradient: LinearGradient(
+              //     colors: state.isLoading
+              //         ? [
+              //             Colors.white,
+              //             Colors.grey,
+              //           ]
+              //         : state.titleStatus == 'Connected'
+              //             ? [Colors.white, Color(0xff5cffd1)]
+              //             : [Colors.white, Colors.grey],
+              //     begin: Alignment.topCenter,
+              //     end: Alignment.bottomCenter)
+                  ),
           child: SafeArea(
             
             child: DecoratedBox(
@@ -45,7 +47,7 @@ class _ServerPageState extends State<ServerPage> {
                     appBar: AppBar(
                       leading: TextButton(onPressed: () {
                         Navigator.pop(context);
-                      }, child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black,),),
+                      }, child: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black,),),
                       title: const Text(
                         'Virtual server',
                         style: TextStyle(color: Colors.black),
@@ -72,7 +74,7 @@ class _ServerPageState extends State<ServerPage> {
                       //     ]),
                     ),
                     body: //const TabBarView(children: [
-                      AllServer(),
+                      const AllServer(),
                       // PretimunServer()
                       // Row(
                       //     children: [

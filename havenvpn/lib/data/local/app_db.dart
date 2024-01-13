@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
+import 'package:openvpn/utils/extension/date_extension.dart';
 
 import '../../domain/model/index.dart';
 
@@ -23,22 +24,24 @@ class AppDatabase {
 
   late Box<VpnServerModel> _vpnBox;
   late Box<HistoryModel> _historyBox;
-   late Box<bool> _agreePrivacyBox;
+  late Box<bool> _agreePrivacyBox;
   Future<void> initialize() async {
     await Hive.initFlutter();
     Hive.registerAdapter<VpnServerModel>(VpnServerModelAdapter());
     Hive.registerAdapter<HistoryModel>(HistoryModelAdapter());
     _vpnBox = await Hive.openBox<VpnServerModel>(Table.vpn.value);
     _historyBox = await Hive.openBox<HistoryModel>(Table.history.value);
-      _agreePrivacyBox = await Hive.openBox<bool>('agreePrivacy');
+    _agreePrivacyBox = await Hive.openBox<bool>('agreePrivacy');
   }
-    bool getAgreePrivacyStatus() {
+
+  bool getAgreePrivacyStatus() {
     return _agreePrivacyBox.get('status') ?? false;
   }
 
   Future<void> setAgreePrivacyStatus(bool status) async {
     await _agreePrivacyBox.put('status', status);
   }
+
   List<VpnServerModel> getAllVpnServers() {
     return _vpnBox.values.toList();
   }
@@ -58,17 +61,30 @@ class AppDatabase {
   VpnServerModel? getVpnServerById(int? id) {
     return _vpnBox.get(id);
   }
- Future<void> deleteAllHistories(Function()? callback) async {
+
+  Future<void> deleteAllHistories(Function()? callback) async {
     final List<HistoryModel> allHistories = getAllHistories();
     int index = 0;
     for (final history in allHistories) {
       await _historyBox.delete(history.id);
       index++;
-      if(index == allHistories.length)
-      {
+      if (index == allHistories.length) {
         callback?.call();
       }
     }
     debugPrint('all history deleted');
+  }
+
+  Future<void> deleteitems(Function()? callback, String time) async {
+    final List<HistoryModel> allHistories = getAllHistories();
+    int  ok =0 ;
+    for (int i = 0; i < allHistories.length; i++) {
+      if (allHistories[i].createAt.second.toString() == time) {
+        ok = i;
+      }
+    }
+    await _historyBox.deleteAt(ok);
+    callback?.call();
+    debugPrint('Deleted');  
   }
 }

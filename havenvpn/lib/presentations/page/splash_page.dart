@@ -20,7 +20,7 @@ class SplashPage extends StatelessWidget {
     bool agreePrivacy = AppDatabase().getAgreePrivacyStatus();
     context.read<AppCubit>().fetchServerList();
     return Scaffold(
-      backgroundColor: Colors.black.withOpacity(0.05),
+
       body: Custombackground(
         widget: BlocListener<AppCubit, AppState>(
           listener: (context, state)  async{

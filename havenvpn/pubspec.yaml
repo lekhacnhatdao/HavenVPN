@@ -52,6 +52,7 @@ dependencies:
   gradient_borders: ^1.0.0
   syncfusion_flutter_gauges: ^24.1.43
   flutter_internet_speed_test: ^1.4.0
+  lottie: ^2.7.0
   
 
 dev_dependencies:

@@ -40,8 +40,7 @@ class CustomBottomBar extends StatefulWidget {
   State<CustomBottomBar> createState() => _CustomBottomBarState();
 }
 
-class _CustomBottomBarState extends State<CustomBottomBar>
- {
+class _CustomBottomBarState extends State<CustomBottomBar> {
   int valSelect = 1;
   @override
   void initState() {
@@ -49,12 +48,9 @@ class _CustomBottomBarState extends State<CustomBottomBar>
     widget.controller.addListener(() {
       setState(() {
         widget.controller.index;
-        
       });
     });
   }
- 
-  
 
   @override
   Widget build(BuildContext context) {

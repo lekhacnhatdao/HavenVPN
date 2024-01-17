@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:openvpn/resources/strings.dart';
 import 'package:openvpn/utils/config.dart';
 
-
 class TermsPage extends StatelessWidget {
   const TermsPage({super.key});
 
@@ -10,8 +9,12 @@ class TermsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(color: Color(0xff6928d2)),
         centerTitle: true,
-        title: const Text('Terms of Service'),
+        title: const Text(
+          'Terms of Service',
+          style: TextStyle(color: Color(0xff6928d2)),
+        ),
       ),
       body: const SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -52,6 +55,10 @@ class TermsPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16),
+            Text(
+              'If you have any questions or suggestions about our Terms, do not hesitate to contact us at ${Strings.mailContact}.',
+              style: TextStyle(fontSize: 16),
+            ),
 
             // TermsItem(
             //   'Shanghaivpn - VPN Fast & Secure',

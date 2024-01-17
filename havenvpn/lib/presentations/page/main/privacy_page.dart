@@ -10,8 +10,9 @@ class PrivacyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(color: Color(0xff6928d2)),
         centerTitle: true,
-        title: const Text('Privacy Policy'),
+        title: const Text('Privacy Policy', style: TextStyle( color: Color(0xff6928d2)),),
       ),
       body: const SingleChildScrollView(
         padding: EdgeInsets.all(16.0),

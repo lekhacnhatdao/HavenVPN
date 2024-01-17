@@ -82,7 +82,7 @@ extension AppStateExt on AppState {
       final bytes = int.parse(vpnStatus?.byteIn ?? '0');
       return Utils.convertBytesToString(bytes);
     }
-    return '-- Mbps';
+    return '-- Kbps';
   }
 
   String get byteOut {
@@ -90,6 +90,6 @@ extension AppStateExt on AppState {
       final bytes = int.parse(vpnStatus?.byteOut ?? '0');
       return Utils.convertBytesToString(bytes);
     }
-    return '-- Mbps';
+    return '-- Kbps';
   }
 }

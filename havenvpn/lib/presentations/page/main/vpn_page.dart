@@ -291,7 +291,11 @@ class _VpnPageState extends State<VpnPage> {
                   ),
                   text: 'connecting',
                   onPressed: state.isConnecting
-                      ? null
+                      
+                  ? () {
+                     context.read<AppCubit>().openVPN.disconnect();
+                  }
+                  
                       : () async {
                           await context.read<AppCubit>().toggle();
                           if (state.isConnecting) {
@@ -423,8 +427,9 @@ class _VpnPageState extends State<VpnPage> {
           Row(
             children: [
               const Icon(Icons.file_download_outlined, color: Color(0xff6928d2)),
+              SizedBox(width: 2,),
               Column(
-                children: [const Text('Upload:'), Text(' ${dowload}')],
+                children: [  Text(' ${dowload}') ,const Text('Download')],
               ),
             ],
           ),
@@ -435,7 +440,7 @@ class _VpnPageState extends State<VpnPage> {
             children: [
               const Icon(Icons.file_upload_outlined, color: Color(0xff6928d2),),
               Column(
-                children: [const Text('Upload:'), Text(' ${upload}')],
+                children: [ Text(' ${upload}'),const Text('Upload'),],
               )
             ],
           )

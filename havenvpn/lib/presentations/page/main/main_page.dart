@@ -10,6 +10,7 @@ import 'package:openvpn/presentations/page/main/speedtest.dart';
 import 'package:openvpn/presentations/page/main/vpn_page.dart';
 import 'package:openvpn/presentations/widget/impl/backround.dart';
 import 'package:openvpn/presentations/widget/impl/custombar.dart';
+import 'package:openvpn/resources/assets.gen.dart';
 import 'package:openvpn/utils/config.dart';
 
 @RoutePage()
@@ -49,7 +50,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                     ),
                     const SizedBox(width: 10,),
                     GestureDetector(onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SettingPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingPage()));
                     } ,child: const Icon(Icons.settings_outlined, color: Color(0xff6928d2),),),
                     const SizedBox(width: 10,),
                   ],
@@ -58,13 +59,10 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                   centerTitle: true,
                   title:  Row(
                     children: [
-                      const Image(
-                        image: AssetImage('assets/images/5.png'),
-                        height: 40,
-                        fit: BoxFit.contain,
-                      ),
-                      Text('${ Config.appName.split('T').last}'  ,
-                        style: const TextStyle(color: Colors.black),
+                       Assets.icons.logo.svg(height: 40),
+                       const SizedBox(width: 3,),
+                      Text('${ Config.appName.split('H').last}'  ,
+                        style: const TextStyle(color: Color(0xff6928d2)),
                       ),
                     ],
                   ),

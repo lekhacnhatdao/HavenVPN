@@ -39,7 +39,7 @@ class _RatingDialogState extends State<RatingDialog> {
             Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-                color: Colors.blue
+                
               ),
               child: AppBar(
                 
@@ -47,9 +47,9 @@ class _RatingDialogState extends State<RatingDialog> {
                 leading: TextButton(onPressed: (){
                 Navigator.pop(context);
                 
-              },child: const Icon(Icons.clear_rounded)),
-              title:  _rating <= 3?  const Icon(Icons.sentiment_neutral_sharp, color: Colors.yellow,size: 50,) : const Icon(Icons.emoji_emotions_rounded, color: Colors.yellow,size: 50,),
-              centerTitle: true,
+              },child: const Icon(Icons.clear_rounded, color: Colors.black,)),
+              
+          
               
               ),
             ),
@@ -62,24 +62,28 @@ class _RatingDialogState extends State<RatingDialog> {
               
 
             // ),
+              Assets.images.rating.image(height: MediaQuery.of(context).size.height/3),
             
             const SizedBox(
-              height: 5,
+              height: 30,
             ),
             const AppBodyText(
               text: 'Do you like ${Config.appName} ?',
               textAlign: TextAlign.center,
               size: 20,
-              color: AppColors.primaryDark,
+              color: Color(0xff6928d2),
+              
             ),
+            const SizedBox(height: 10,),
             AppBodyText(
               text: Platform.isIOS
                   ? 'Tap a star to rate on the App Store'
                   : 'Tap on a star to provide your rating on Google Play',
               textAlign: TextAlign.center,
               size: 14,
-              color: AppColors.primaryDark,
+              color: const Color(0xff6928d2),
             ),
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -94,7 +98,7 @@ class _RatingDialogState extends State<RatingDialog> {
                       padding: const EdgeInsets.all(5.0),
                       child: i <= _rating
                           ? 
-                          const Icon(Icons.star, color: Colors.amber,) : const Icon(Icons.star, color: Colors.grey,),
+                          const Icon(Icons.star, color:Colors.amber ,size: 50,) :  Icon(Icons.star, color: Colors.black.withOpacity(0.1),size: 50,),
                     ),
                   ),
               ],
@@ -116,12 +120,12 @@ class _RatingDialogState extends State<RatingDialog> {
             height: 50,
             width: double.infinity,
             decoration: const BoxDecoration(
-              color: Color(0xff5cffd1),
+              color: Color(0xff6928d2),
               borderRadius: BorderRadius.all(Radius.circular(10))
             ),
             margin: const EdgeInsets.symmetric(horizontal: 10),
             child: const Align(child: Text('Send Feedback', style: TextStyle(
-color: AppColors.primaryDark
+color: Colors.white
             ),))),
             ),
           const SizedBox(height: 30,)

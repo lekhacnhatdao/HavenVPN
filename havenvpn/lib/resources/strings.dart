@@ -9,11 +9,11 @@ class Strings {
   //PremiumPage
   static const String upgradePremium = 'Switch to Premium Plan';
   static const String benefitsOfThePremium =
-      'Ad-free, global servers, speedy and reliable:';
-  static const String removeAds = 'Get rid of all ad interruptions';
-  static const String unlockAllPremium = 'Unlock every premium server';
-  static const String superFastServer = 'Top-tier servers, rapid access';
-  static const String customerSupport = '24/7 dedicated customer care';
+      'No ads, global servers, fast and stable performance:';
+  static const String removeAds = 'Enjoy uninterrupted experiences, ad-free.';
+  static const String unlockAllPremium = 'Unleash the full power, explore all possibilities';
+  static const String superFastServer = 'Get in the fast lane, with our premium servers.';
+  static const String customerSupport = 'Always here for you, 24/7 dedicated support.';
   static const String getPremiumNow = 'Try for Free & Subscribe';
 
   //ShopPage

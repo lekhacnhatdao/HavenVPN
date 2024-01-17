@@ -29,10 +29,10 @@ class AgreePrivacyPage extends StatelessWidget {
                   SizedBox(height: screenHeight * 0.1),
                   const PrivacyPolicyItem(
                     'Privacy and security',
-                    '\nProtect your privacy, be safe and avoid  losing your data.',
+                    '\nEmbrace peace of mind: Secure your privacy, stay safe, and never lose your data again',
                   ),
                   SizedBox(height: screenHeight * 0.1,),
-                 const $AssetsImagesGen().security.image(),
+                 const $AssetsImagesGen().security.image(height: 200),
                   SizedBox(height: screenHeight * 0.1),
           
                   GestureDetector(
@@ -48,9 +48,9 @@ class AgreePrivacyPage extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       decoration:  const BoxDecoration(
                         borderRadius:  BorderRadius.all(Radius.circular(10)),
-                       color: Color(0xff5cffd1)
+                       color: Color(0xff6928d2)
                       ),
-                        child: const Align(child: Text("Agree and continue", style: TextStyle(color: Colors.black),)) ,
+                        child: const Align(child: Text("Agree and continue", style: TextStyle(color: Colors.white),)) ,
                      
                      ),
                   ),

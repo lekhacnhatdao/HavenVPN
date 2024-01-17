@@ -22,6 +22,7 @@ class AppBodyText extends StatelessWidget {
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
             fontSize: size,
             color: color,
+            fontWeight: FontWeight.w600
           
           ),
           

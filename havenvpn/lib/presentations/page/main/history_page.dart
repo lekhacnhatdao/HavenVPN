@@ -83,7 +83,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       SizedBox(height: 16),
                       Align(
                         child: AppBodyText(
-                          text: "Server history is currently empty!",
+                          text: "Page History is empty!",
                           size: 20,
                           textAlign: TextAlign.center,
                         ),
@@ -139,11 +139,13 @@ class _HistoryPageState extends State<HistoryPage> {
               children: [
                 SizedBox(height: 10,),
                 const Text(
-                  'Clean History',
+                  'Delete History',
                 ),
-                
+                const SizedBox(
+                  height: 10,
+                ),
                 const Text(
-                  'Would you like to remove everything ?',
+                  'Do you want to delete everything?',
                 ),
                 const SizedBox(
                   height: 20,

@@ -47,10 +47,10 @@ class _ServerPageState extends State<ServerPage> {
                     appBar: AppBar(
                       leading: TextButton(onPressed: () {
                         Navigator.pop(context);
-                      }, child: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black,),),
+                      }, child: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xff6928d2),),),
                       title: const Text(
                         'Virtual server',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Color(0xff6928d2)),
                       ),
                       centerTitle: true,
                       // bottom: const TabBar(

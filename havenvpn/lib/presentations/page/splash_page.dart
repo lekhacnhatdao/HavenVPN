@@ -20,9 +20,9 @@ class SplashPage extends StatelessWidget {
     bool agreePrivacy = AppDatabase().getAgreePrivacyStatus();
     context.read<AppCubit>().fetchServerList();
     return Scaffold(
-
-      body: Custombackground(
-        widget: BlocListener<AppCubit, AppState>(
+      backgroundColor: Color(0xff6928d2),
+      body: 
+        BlocListener<AppCubit, AppState>(
           listener: (context, state)  async{
              await Future.delayed(const Duration(milliseconds: 3000));
 
@@ -48,13 +48,13 @@ class SplashPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                $AssetsImagesGen().logo.image(height: 50),
-                const Text('${Config.appName}', style: TextStyle(color: AppColors.primary, fontSize: 22),)
+               Assets.icons.logo.svg( height: 150),
+                const Text('${Config.appName}', style: TextStyle(color: Colors.black, fontSize: 22),)
               ],
             ),
           ),
         ),
-      ),
+      
     );
   }
 }

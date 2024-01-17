@@ -1,12 +1,12 @@
 final class Config {
   Config._();
-  static const mailContact = 'oussamaeloualidi3@gmail.com';
-  static const String appName = 'Twilight VPN';
+  static const mailContact = 'vietmmo.testapp@gmail.com';
+  static const String appName = 'Haven VPN';
   static const version = '1.0';
-  static const company = 'Zylomatrix';
-  static const bundleId = 'com.Zylomatrix.AmazingVPN';
+  static const company = 'M-Office Store Toolkits';
+  static const bundleId = 'com.moffice.HavenVPN';
 
-  static const vpnUrl = 'https://api.shieldme.top/servers/';
+  // static const vpnUrl = 'https://api.shieldme.top/servers/';
 
   static const privacyPolicyUrl = 'https://sites.google.com/$company-privacy';
   static const termOfUseUrl = 'https://sites.google.com/view/$company-terms';

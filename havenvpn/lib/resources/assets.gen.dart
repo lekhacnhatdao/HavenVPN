@@ -15,7 +15,7 @@ class $AssetsIconsGen {
 
   const $AssetsIconsGen();
   /// File path: assets/icons/ic_Vector.svg
-  SvgGenImage get icVector => const SvgGenImage('assets/icons/ic_Vector.svg');
+  SvgGenImage get logo => const SvgGenImage('assets/icons/Group924.svg');
   SvgGenImage get icStar1 => const SvgGenImage('assets/icons/ic_Star1.svg');
    SvgGenImage get icStar2 => const SvgGenImage('assets/icons/ic_Star2.svg');
 
@@ -45,10 +45,11 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/ic_verify.svg
   SvgGenImage get icVerify => const SvgGenImage('assets/icons/ic_verify.svg');
+  
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        icVector,
+        logo,
         icClock,
         icCrown,
         icCrown1,
@@ -66,26 +67,23 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Frame.png
 
-  AssetGenImage get security => const AssetGenImage('assets/images/security.jpg');
+  AssetGenImage get security => const AssetGenImage('assets/images/seciurity.jpg');
 
   /// File path: assets/images/Group17.png
 
-AssetGenImage get logo => const AssetGenImage('assets/images/5.png');
+AssetGenImage get logo => const AssetGenImage('assets/images/LOGO.png');
 AssetGenImage get crown => const AssetGenImage('assets/images/crown.png');
-AssetGenImage get removeads =>  const AssetGenImage('assets/images/remove.png');
-AssetGenImage get support =>  const AssetGenImage('assets/images/images.jpg');
-AssetGenImage get unlock =>  const AssetGenImage('assets/images/images.png');
-AssetGenImage get smile =>  const AssetGenImage('assets/images/smile.png');
-AssetGenImage get sad =>  const AssetGenImage('assets/images/sad.jpg');
 AssetGenImage get connecting =>  const AssetGenImage('assets/images/giphy.gif');
 AssetGenImage get background =>  const AssetGenImage('assets/images/background.jpg');
 AssetGenImage get rocket =>  const AssetGenImage('assets/images/rocket.png');
+AssetGenImage get rating =>  const AssetGenImage('assets/images/ratting.jpg');
+AssetGenImage get huychuong =>  const AssetGenImage('assets/images/j.png');
 
   /// File path: assets/images/Layer 1.png
 
 
   /// List of all assets
-  List<AssetGenImage> get values => [ security, logo, crown, removeads, support];
+  List<AssetGenImage> get values => [ security, logo, crown,];
 }
 
 class Assets {
